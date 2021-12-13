@@ -30,7 +30,7 @@ namespace TruckRouteAPI.Controllers
         {
             try
             {
-              return Ok(@"To get the Route from USA, add 3 letters CountryCode at the end : 
+                return Ok(@"To get the Route from USA, add 3 letters CountryCode at the end : 
                           truckrouteapi.azurewebsites.net/{CountryCode}");
             }
             catch (Exception ex)
@@ -38,7 +38,36 @@ namespace TruckRouteAPI.Controllers
                 _logger.LogError($"Something went wrong: {ex}");
                 return StatusCode(500, "Internal server error");
             }
-            
+
+        }
+
+
+        [HttpGet("{id}")]
+        public ActionResult<ServiceResponse<Route>> GetById(string id)
+        {
+            try
+            {
+                var serviceResponse = _routeService.GetRouteFromUSA(id);
+                if (id.Length != 3)
+                {
+                    return BadRequest(serviceResponse);
+                }
+                else if (serviceResponse.Success == false)
+                {
+                    return NotFound(serviceResponse);
+                }
+                else
+                {
+                    return Ok(serviceResponse);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+
         }
 
     }
