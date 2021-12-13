@@ -40,7 +40,7 @@ namespace TruckRouteAPI.Services.RouteService
             var serviceResponse = new ServiceResponse<Route>();
             if(code.Length != 3)
             {
-                serviceResponse.Message = "Country code is 3 letter word!";
+                serviceResponse.Message = "Country code has to be a three-letter acronym, e.g. (USA)!";
                 serviceResponse.Success = false;
                 return serviceResponse;
             }
