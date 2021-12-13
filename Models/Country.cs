@@ -118,7 +118,6 @@ namespace TruckRouteAPI.Models
             return ExtractRoute(destination);
         }
 
-
-
     }
+    
 }
