@@ -29,5 +29,25 @@ namespace TruckRouteAPI.Models
             this.Code = code;
         }
 
+        /// <summary>
+        /// Adding neighbouring countries
+        /// </summary>
+        /// <param name="neighbours">params neighbours</param>
+        public void AddNeighbours(params Country[] neighbours)
+        {
+            // If no argument then just return
+            if (neighbours.Length == 0)
+            {
+                return;
+            }
+            
+            // Add neighbours to each other
+            foreach (var neighbour in neighbours)
+            {
+                this.Neighbours.Add(neighbour);
+                neighbour.Neighbours.Add(this);
+            }
+        }
+
     }
 }
