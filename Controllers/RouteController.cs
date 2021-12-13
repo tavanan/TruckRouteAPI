@@ -30,7 +30,7 @@ namespace TruckRouteAPI.Controllers
         {
             try
             {
-                return Ok(@"To get the Route from USA, add 3 letters CountryCode at the end : truckrouteapi.azurewebsites.net/{CountryCode}");
+                return Ok("To get the Route from USA, add 3 letters CountryCode at the end : truckrouteapi.azurewebsites.net/{CountryCode}");
             }
             catch (Exception ex)
             {
