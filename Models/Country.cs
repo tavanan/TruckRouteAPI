@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace TruckRouteAPI.Models
 {
+    ///<remarks>Hold data for a Country</remarks>
     public class Country
     {
         /// <summary>
@@ -10,7 +11,7 @@ namespace TruckRouteAPI.Models
         public string Code { get; }
 
         /// <summary>
-        /// Check if the node is visited used in BFS algorithm
+        /// Check if the node is visited which is used in BFS algorithm
         /// </summary>
         public bool Visited { get; set; } = false;
 
@@ -73,10 +74,10 @@ namespace TruckRouteAPI.Models
         }
 
         /// <summary>
-        /// Pass a destination Country and it returns the route to that.
+        /// Pass a destination Country and it returns the route to that usnig BFS algorithm.
         /// </summary>
-        /// <param name="destination"> destination Country</param>
-        /// <returns>List of countries from this country as source.</returns>
+        /// <param name="destination">Destination Country</param>
+        /// <returns>List of countries to destination.</returns>
         public List<Country> RouteTo(Country destination)
         {
             // Initialize Queue
@@ -119,5 +120,5 @@ namespace TruckRouteAPI.Models
         }
 
     }
-    
+
 }
