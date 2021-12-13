@@ -50,13 +50,13 @@ namespace TruckRouteAPI.Services.RouteService
 
             
             var route = new Route();
-            var path = new List<Country>();
+            var routeCountries = new List<Country>();
 
             // Convert input id to upper to accept request with lower case id as well
             string idUpper = code.ToUpper();
 
             // Find Country with corresponding id
-            var destination = countries.Find(country => country.Code == idUpper);
+            var destination = this.countries.Find(country => country.Code == idUpper);
            
             // If country is not found the return proper response
             if (destination == null)
@@ -67,10 +67,10 @@ namespace TruckRouteAPI.Services.RouteService
             }
 
             // Get path from USA to destination
-            path = countries[0].RouteTo(destination);
+            routeCountries = this.countries[0].RouteTo(destination);
 
             // Add each country id to the road path
-            foreach (var country in path)
+            foreach (var country in routeCountries)
             {
                 route.Countries.Add(country.Code);
             }
