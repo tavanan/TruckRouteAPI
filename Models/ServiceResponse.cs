@@ -19,5 +19,6 @@ namespace TruckRouteAPI.Models
         /// Returning a message to the client
         /// </summary>
         public string Message { get; set; } = null;
+        
     }
 }
