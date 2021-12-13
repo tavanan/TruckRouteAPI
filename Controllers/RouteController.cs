@@ -23,5 +23,23 @@ namespace TruckRouteAPI.Controllers
             _logger = logger;
         }
 
+
+        // Send a Message to the main url to show how to use the api
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+              return Ok(@"To get the Route from USA, add 3 letters CountryCode at the end : 
+                          truckrouteapi.azurewebsites.net/{CountryCode}");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+            
+        }
+
     }
 }
