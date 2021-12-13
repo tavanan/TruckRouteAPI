@@ -31,7 +31,16 @@ URL: truckrouteapi.azurewebsites.net
 To get a route from USA to destination we need to add three-letter destination CountryCode at the end of URL
 For Example:
 - truckrouteapi.azurewebsites.net/PAN
-should return ["USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"] as a part of response.
-
+should return ["USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"] as a part of response. The full response is as follow:
+```json
+{
+    "data": {
+        "destination": "PAN",
+        "countries": ["USA","MEX","GTM","HND","NIC","CRI","PAN"]
+    },
+    "success": true,
+    "message": null
+}
+```
 - truckrouteapi.azurewebsites.net/BLZ
 should return ["USA", "MEX", "BLZ"] as a part of response
