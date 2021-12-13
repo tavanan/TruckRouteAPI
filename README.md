@@ -4,7 +4,7 @@ Build an API for truck route. The application receives a three-letter code for a
 all countries a driver must travel through to go from the United State of America to the destination.
 
 ## Assumption
-We assume that all paths have the same weight and we want to find the shortest path from USA to the destination.
+We assume that all routes have the same weight and we want to find the shortest route from USA to the destination.
 
 ## Map
 Here is simplified map of North America: 
