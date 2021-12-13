@@ -40,5 +40,35 @@ namespace TruckRouteAPI.Controllers
 
         }
 
+
+        [HttpGet("{id}")]
+        public ActionResult<ServiceResponse<Route>> GetById(string id)
+        {
+            try
+            {
+                var serviceResponse = _routeService.GetRouteFromUSA(id);
+                if (id.Length != 3)
+                {
+                    return BadRequest(serviceResponse);
+                }
+                else if (serviceResponse.Success == false)
+                {
+                    return NotFound(serviceResponse);
+                }
+                else
+                {
+                    return Ok(serviceResponse);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+
+        }
+
+
     }
 }
