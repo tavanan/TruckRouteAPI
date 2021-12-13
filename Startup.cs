@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TruckRouteAPI.Services.RouteService;
 
 namespace TruckRouteAPI
 {
@@ -26,6 +27,7 @@ namespace TruckRouteAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<IRouteService,RouteService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
