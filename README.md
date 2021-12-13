@@ -26,7 +26,7 @@ Here is simplified map of North America:
 - Docker
 
 ## Usage
-URL: truckrouteapi.azurewebsites.net
+URL: **truckrouteapi.azurewebsites.net**
 
 To get a route from USA to destination we need to add three-letter destination CountryCode at the end of URL
 For Example:
