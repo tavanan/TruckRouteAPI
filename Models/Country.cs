@@ -49,5 +49,29 @@ namespace TruckRouteAPI.Models
             }
         }
 
+        /// <summary>
+        /// Extracting the route from destination and reverse it to get actual route.
+        /// </summary>
+        /// <param name="destination">Destination country.</param>
+        /// <returns>returning route as a list of countries.</returns>
+        private List<Country> ExtractRoute(Country destination)
+        {
+
+            var route = new List<Country>();
+
+            // Iterate until Country is null to reach source Country 
+            // because Preceding node of source is null
+            while (destination != null)
+            {
+                route.Add(destination);
+                destination = destination.Preceding;
+            }
+
+            //Reverse the to get route from source to destination
+            route.Reverse();
+            return route;
+        }
+
+
     }
 }
