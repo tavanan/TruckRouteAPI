@@ -11,9 +11,9 @@ namespace TruckRouteAPI.Models
         public string Destination { get; set; } = null;
 
         /// <summary>
-        /// Countries on route to the destination
+        /// Countries in route to the destination
         /// </summary>
         public List<string> Countries { get; set; } = new List<string>();
-        
+
     }
 }
