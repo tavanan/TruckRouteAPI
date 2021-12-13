@@ -72,6 +72,53 @@ namespace TruckRouteAPI.Models
             return route;
         }
 
+        /// <summary>
+        /// Pass a destination Country and it returns the route to that.
+        /// </summary>
+        /// <param name="destination"> destination Country</param>
+        /// <returns>List of countries from this country as source.</returns>
+        public List<Country> RouteTo(Country destination)
+        {
+            // Initialize Queue
+            var queue = new Queue<Country>();
+            
+            // Visit and push the source Country to the queue
+            this.Visited = true;
+            queue.Enqueue(this);
+
+            // BFS algorithm until queue is not empty and not reached to the destination Country
+            while (queue.Count != 0)
+            {
+                // Pop a node from the queue
+                Country currentCountry = queue.Dequeue();
+
+                // Search through neighbours countries to find the destination
+                foreach (var country in currentCountry.Neighbours)
+                {
+                    // Check if Country is already visited
+                    if (!country.Visited)
+                    {
+                        // Visit and push the Country to the queue 
+                        country.Visited = true;
+                        queue.Enqueue(country);
+
+                        // Update its preceding Country
+                        country.Preceding = currentCountry;
+
+                        // If reached to the destination then stop the search
+                        if (country == destination)
+                        {
+                            queue.Clear();
+                            break;
+                        }
+                    }
+                }
+            }
+            // Extracting the route from the results
+            return ExtractRoute(destination);
+        }
+
+
 
     }
 }
