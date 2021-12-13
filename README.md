@@ -28,7 +28,7 @@ Here is simplified map of North America:
 ## Usage
 URL: truckrouteapi.azurewebsites.net
 
-To get a route from USA to destination we need to add three-letter CountryCode at the end of URL
+To get a route from USA to destination we need to add three-letter destination CountryCode at the end of URL
 For Example:
 - truckrouteapi.azurewebsites.net/PAN
 should return ["USA", "MEX", "GTM", "HND", "NIC", "CRI", "PAN"] as a part of response.
